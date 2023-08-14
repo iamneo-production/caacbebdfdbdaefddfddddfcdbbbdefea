@@ -21,7 +21,8 @@ public class SpringApplicationTests {
     public void beforeTest() throws Exception
      {
    // replace seleniumhost and port with correct values
-        driver = new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
+   System.setProperty("webdriver.chrome.driver", "/home/coder/project/workspace/chromedriver");
+        driver = new RemoteWebDriver(new URL("http://localhost:8080"), chromeOptions);
         driver.manage().window().maximize();
     }
     @Test(priority= 0)
@@ -35,18 +36,18 @@ public class SpringApplicationTests {
 
 		}
 
-		@Test(priority= 1)
+	@Test(priority= 1)
 		public void navigateCommands() {
 			driver.navigate().to(facebookUrl);
 		
 		}
-		@Test(priority= 2)
+	@Test(priority= 2)
 		public void navigateCommandsb() {
 		
 			driver.navigate().back();
 		}
 		
-		@Test(priority= 3)
+	@Test(priority= 3)
 		public void url1() {
 		
 			String currentUrl = driver.getCurrentUrl();
@@ -54,12 +55,12 @@ public class SpringApplicationTests {
 			System.out.println("Current URL :: " + currentUrl);
 	}
 			
-		@Test(priority= 4)
+	@Test(priority= 4)
 		public void url12() {
 			driver.navigate().forward();
 		}
 		
-		@Test(priority= 5)
+	@Test(priority= 5)
 		public void url123() {
 			driver.navigate().refresh();
 
